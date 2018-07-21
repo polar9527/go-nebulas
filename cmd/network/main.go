@@ -144,6 +144,7 @@ func run(mode, configPath string, packageSize, concurrentMessageCount, totalMess
 		time.Sleep(1 * time.Second)
 		go func() {
 			for i := 0; i < int(concurrentMessageCount); i++ {
+				fmt.Printf("SendMessageToPeers i: %d", i)
 				netService.SendMessageToPeers(PingMessage, GenerateData(packageSize), net.MessagePriorityNormal, new(net.ChainSyncPeersFilter))
 			}
 		}()
