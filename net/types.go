@@ -23,8 +23,8 @@ import (
 	"fmt"
 
 	"github.com/gogo/protobuf/proto"
-	"github.com/nebulasio/go-nebulas/crypto/hash"
-	"github.com/nebulasio/go-nebulas/util/byteutils"
+	"github.com/polar9527/go-nebulas/crypto/hash"
+	"github.com/polar9527/go-nebulas/util/byteutils"
 )
 
 // Message Priority.

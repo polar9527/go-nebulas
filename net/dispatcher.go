@@ -24,8 +24,8 @@ import (
 	"time"
 
 	lru "github.com/hashicorp/golang-lru"
-	"github.com/nebulasio/go-nebulas/metrics"
-	"github.com/nebulasio/go-nebulas/util/logging"
+	"github.com/polar9527/go-nebulas/metrics"
+	"github.com/polar9527/go-nebulas/util/logging"
 	"github.com/sirupsen/logrus"
 )
 
@@ -130,7 +130,7 @@ func (dp *Dispatcher) Stop() {
 
 // PutMessage put new message to chan, then subscribers will be notified to process.
 func (dp *Dispatcher) PutMessage(msg Message) {
-	// it's a optimize strategy for message dispatch, according to https://github.com/nebulasio/go-nebulas/issues/50
+	// it's a optimize strategy for message dispatch, according to https://github.com/polar9527/go-nebulas/issues/50
 	hash := msg.Hash()
 	if dp.filters[msg.MessageType()] {
 		if exist, _ := dp.dispatchedMessages.ContainsOrAdd(hash, hash); exist == true {

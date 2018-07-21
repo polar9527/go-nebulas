@@ -19,9 +19,9 @@
 syntax = "proto3";
 
 import "google/api/annotations.proto";
-import "github.com/nebulasio/go-nebulas/consensus/pb/state.proto";
-import "github.com/nebulasio/go-nebulas/core/pb/block.proto";
-import "github.com/nebulasio/go-nebulas/neblet/pb/config.proto";
+import "github.com/polar9527/go-nebulas/consensus/pb/state.proto";
+import "github.com/polar9527/go-nebulas/core/pb/block.proto";
+import "github.com/polar9527/go-nebulas/neblet/pb/config.proto";
 
 package rpcpb;
 

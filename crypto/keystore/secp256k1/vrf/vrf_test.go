@@ -23,9 +23,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/nebulasio/go-nebulas/crypto"
-	"github.com/nebulasio/go-nebulas/crypto/keystore"
-	"github.com/nebulasio/go-nebulas/util/byteutils"
+	"github.com/polar9527/go-nebulas/crypto"
+	"github.com/polar9527/go-nebulas/crypto/keystore"
+	"github.com/polar9527/go-nebulas/util/byteutils"
 )
 
 const (

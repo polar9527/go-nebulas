@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/nebulasio/go-nebulas/util/logging"
+	"github.com/polar9527/go-nebulas/util/logging"
 	"github.com/sirupsen/logrus"
 	"github.com/willf/bloom"
 )

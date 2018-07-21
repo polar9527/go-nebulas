@@ -19,9 +19,9 @@
 package secp256k1
 
 import (
-	"github.com/nebulasio/go-nebulas/crypto/keystore"
-	"github.com/nebulasio/go-nebulas/crypto/utils"
-	"github.com/nebulasio/go-nebulas/util/logging"
+	"github.com/polar9527/go-nebulas/crypto/keystore"
+	"github.com/polar9527/go-nebulas/crypto/utils"
+	"github.com/polar9527/go-nebulas/util/logging"
 	"github.com/sirupsen/logrus"
 )
 

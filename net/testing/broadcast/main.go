@@ -11,7 +11,7 @@ import (
 	"time"
 
 	peer "github.com/libp2p/go-libp2p-peer"
-	"github.com/nebulasio/go-nebulas/net"
+	"github.com/polar9527/go-nebulas/net"
 )
 
 type nodeIdx []int

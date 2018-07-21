@@ -25,8 +25,8 @@ import (
 	"time"
 
 	"github.com/golang/snappy"
-	byteutils "github.com/nebulasio/go-nebulas/util/byteutils"
-	"github.com/nebulasio/go-nebulas/util/logging"
+	byteutils "github.com/polar9527/go-nebulas/util/byteutils"
+	"github.com/polar9527/go-nebulas/util/logging"
 	"github.com/sirupsen/logrus"
 )
 

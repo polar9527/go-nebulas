@@ -21,7 +21,7 @@ package consensuspb
 import (
 	"fmt"
 
-	"github.com/nebulasio/go-nebulas/util/byteutils"
+	"github.com/polar9527/go-nebulas/util/byteutils"
 )
 
 // ToString return a string of consensus root

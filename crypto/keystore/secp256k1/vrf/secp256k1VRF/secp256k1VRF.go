@@ -34,10 +34,10 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/nebulasio/go-nebulas/crypto/keystore/secp256k1"
-	"github.com/nebulasio/go-nebulas/crypto/keystore/secp256k1/bitelliptic"
+	"github.com/polar9527/go-nebulas/crypto/keystore/secp256k1"
+	"github.com/polar9527/go-nebulas/crypto/keystore/secp256k1/bitelliptic"
 
-	"github.com/nebulasio/go-nebulas/crypto/keystore/secp256k1/vrf"
+	"github.com/polar9527/go-nebulas/crypto/keystore/secp256k1/vrf"
 )
 
 var (

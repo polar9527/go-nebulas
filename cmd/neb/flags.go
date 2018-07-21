@@ -19,7 +19,7 @@
 package main
 
 import (
-	"github.com/nebulasio/go-nebulas/neblet/pb"
+	"github.com/polar9527/go-nebulas/neblet/pb"
 	"github.com/urfave/cli"
 )
 

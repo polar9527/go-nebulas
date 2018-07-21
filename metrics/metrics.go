@@ -25,8 +25,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nebulasio/go-nebulas/neblet/pb"
-	"github.com/nebulasio/go-nebulas/util/logging"
+	"github.com/polar9527/go-nebulas/neblet/pb"
+	"github.com/polar9527/go-nebulas/util/logging"
 	metrics "github.com/rcrowley/go-metrics"
 	"github.com/rcrowley/go-metrics/exp"
 )

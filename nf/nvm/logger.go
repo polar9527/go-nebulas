@@ -21,7 +21,7 @@ package nvm
 import "C"
 
 import (
-	"github.com/nebulasio/go-nebulas/util/logging"
+	"github.com/polar9527/go-nebulas/util/logging"
 )
 
 // V8Log export V8Log

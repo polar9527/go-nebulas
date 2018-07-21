@@ -25,7 +25,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nebulasio/go-nebulas/core/state"
+	"github.com/polar9527/go-nebulas/core/state"
 
 	"github.com/stretchr/testify/assert"
 )

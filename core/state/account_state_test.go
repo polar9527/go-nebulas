@@ -21,9 +21,9 @@ package state
 import (
 	"testing"
 
-	"github.com/nebulasio/go-nebulas/common/trie"
-	"github.com/nebulasio/go-nebulas/storage"
-	"github.com/nebulasio/go-nebulas/util"
+	"github.com/polar9527/go-nebulas/common/trie"
+	"github.com/polar9527/go-nebulas/storage"
+	"github.com/polar9527/go-nebulas/util"
 	"github.com/stretchr/testify/assert"
 )
 

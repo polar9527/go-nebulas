@@ -27,9 +27,9 @@ import (
 	"errors"
 	"os"
 
-	"github.com/nebulasio/go-nebulas/core"
-	"github.com/nebulasio/go-nebulas/util"
-	"github.com/nebulasio/go-nebulas/util/logging"
+	"github.com/polar9527/go-nebulas/core"
+	"github.com/polar9527/go-nebulas/util"
+	"github.com/polar9527/go-nebulas/util/logging"
 	"github.com/sirupsen/logrus"
 )
 

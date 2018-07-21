@@ -21,7 +21,7 @@ package main
 import (
 	"os"
 
-	"github.com/nebulasio/go-nebulas/cmd/console"
+	"github.com/polar9527/go-nebulas/cmd/console"
 	"github.com/urfave/cli"
 )
 

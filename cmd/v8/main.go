@@ -24,10 +24,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/nebulasio/go-nebulas/core"
-	"github.com/nebulasio/go-nebulas/core/state"
-	"github.com/nebulasio/go-nebulas/nf/nvm"
-	"github.com/nebulasio/go-nebulas/storage"
+	"github.com/polar9527/go-nebulas/core"
+	"github.com/polar9527/go-nebulas/core/state"
+	"github.com/polar9527/go-nebulas/nf/nvm"
+	"github.com/polar9527/go-nebulas/storage"
 )
 
 func main() {

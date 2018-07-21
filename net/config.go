@@ -24,7 +24,7 @@ import (
 	"time"
 
 	"github.com/multiformats/go-multiaddr"
-	"github.com/nebulasio/go-nebulas/neblet/pb"
+	"github.com/polar9527/go-nebulas/neblet/pb"
 )
 
 // const
@@ -39,7 +39,7 @@ const ( // TODO delete redundant vars
 	DefaultReservedStreamNum      = 20
 )
 
-// Default Configuration in P2P network
+// Default Configuration in P2P networkcd
 var (
 	DefaultListen = []string{"0.0.0.0:8680"}
 

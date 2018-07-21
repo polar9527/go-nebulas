@@ -21,8 +21,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/nebulasio/go-nebulas/net"
-	"github.com/nebulasio/go-nebulas/util"
+	"github.com/polar9527/go-nebulas/net"
+	"github.com/polar9527/go-nebulas/util"
 	"github.com/urfave/cli"
 )
 

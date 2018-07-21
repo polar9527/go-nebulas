@@ -62,10 +62,10 @@ import (
 	"encoding/json"
 
 	lru "github.com/hashicorp/golang-lru"
-	"github.com/nebulasio/go-nebulas/core"
-	"github.com/nebulasio/go-nebulas/crypto/hash"
-	"github.com/nebulasio/go-nebulas/util/byteutils"
-	"github.com/nebulasio/go-nebulas/util/logging"
+	"github.com/polar9527/go-nebulas/core"
+	"github.com/polar9527/go-nebulas/crypto/hash"
+	"github.com/polar9527/go-nebulas/util/byteutils"
+	"github.com/polar9527/go-nebulas/util/logging"
 	"github.com/sirupsen/logrus"
 )
 
@@ -553,7 +553,7 @@ func getEngineByStorageHandler(handler uint64) (*V8Engine, Account) {
 	if engine.lcsHandler == handler {
 		return engine, engine.ctx.contract
 	} else if engine.gcsHandler == handler {
-		// disable gcs according to issue https://github.com/nebulasio/go-nebulas/issues/23.
+		// disable gcs according to issue https://github.com/polar9527/go-nebulas/issues/23.
 		return nil, nil
 		// return engine, engine.ctx.owner
 	} else {

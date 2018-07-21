@@ -23,11 +23,11 @@ import "C"
 import (
 	"crypto/md5"
 
-	"github.com/nebulasio/go-nebulas/core"
-	"github.com/nebulasio/go-nebulas/crypto/hash"
-	"github.com/nebulasio/go-nebulas/crypto/keystore"
-	"github.com/nebulasio/go-nebulas/util/byteutils"
-	"github.com/nebulasio/go-nebulas/util/logging"
+	"github.com/polar9527/go-nebulas/core"
+	"github.com/polar9527/go-nebulas/crypto/hash"
+	"github.com/polar9527/go-nebulas/crypto/keystore"
+	"github.com/polar9527/go-nebulas/util/byteutils"
+	"github.com/polar9527/go-nebulas/util/logging"
 	"github.com/sirupsen/logrus"
 )
 

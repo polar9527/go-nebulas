@@ -19,7 +19,7 @@
 package storage
 
 import (
-	metrics "github.com/nebulasio/go-nebulas/metrics"
+	metrics "github.com/polar9527/go-nebulas/metrics"
 )
 
 // Metrics for storage

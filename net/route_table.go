@@ -32,8 +32,8 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"github.com/multiformats/go-multiaddr"
-	netpb "github.com/nebulasio/go-nebulas/net/pb"
-	"github.com/nebulasio/go-nebulas/util/logging"
+	netpb "github.com/polar9527/go-nebulas/net/pb"
+	"github.com/polar9527/go-nebulas/util/logging"
 
 	kbucket "github.com/libp2p/go-libp2p-kbucket"
 	peer "github.com/libp2p/go-libp2p-peer"

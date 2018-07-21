@@ -21,14 +21,14 @@ package sync
 import (
 	"bytes"
 
-	"github.com/nebulasio/go-nebulas/common/trie"
-	"github.com/nebulasio/go-nebulas/core"
-	"github.com/nebulasio/go-nebulas/core/pb"
-	"github.com/nebulasio/go-nebulas/storage"
-	"github.com/nebulasio/go-nebulas/sync/pb"
+	"github.com/polar9527/go-nebulas/common/trie"
+	"github.com/polar9527/go-nebulas/core"
+	"github.com/polar9527/go-nebulas/core/pb"
+	"github.com/polar9527/go-nebulas/storage"
+	"github.com/polar9527/go-nebulas/sync/pb"
 
-	"github.com/nebulasio/go-nebulas/util/byteutils"
-	"github.com/nebulasio/go-nebulas/util/logging"
+	"github.com/polar9527/go-nebulas/util/byteutils"
+	"github.com/polar9527/go-nebulas/util/logging"
 	"github.com/sirupsen/logrus"
 )
 
