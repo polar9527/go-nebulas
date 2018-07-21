@@ -51,6 +51,7 @@ func main() {
 	flag.Parse()
 
 	fmt.Printf("%v\n", flag.Args())
+	fmt.Printf("packageSize=%d, concurrentCount=%d, limitCount=%d\n", *packageSize, *concurrentCount, *limitCount)
 
 	if *cpuprofile != "" {
 		f, err := os.Create(*cpuprofile)
