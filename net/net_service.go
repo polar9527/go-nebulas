@@ -30,12 +30,13 @@ type NebService struct {
 }
 
 // NewNebService create netService
-func NewNebService(n Neblet) (*NebService, error) {
-	if networkConf := n.Config().GetNetwork(); networkConf == nil {
-		logging.CLog().Fatal("Failed to find network config in config file")
-		return nil, ErrConfigLackNetWork
-	}
-	node, err := NewNode(NewP2PConfig(n))
+//func NewNebService(n Neblet) (*NebService, error) {
+func NewNebService(mode string) (*NebService, error) {
+	//if networkConf := n.Config().GetNetwork(); networkConf == nil {
+	//	logging.CLog().Fatal("Failed to find network config in config file")
+	//	return nil, ErrConfigLackNetWork
+	//}
+	node, err := NewNode(NewP2PConfig(mode))
 	if err != nil {
 		return nil, err
 	}

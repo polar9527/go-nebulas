@@ -340,7 +340,7 @@ func SetCompatibilityOptions(chainID uint32) {
 		"NvmGasLimitWithoutTimeoutAtHeight":         NvmGasLimitWithoutTimeoutAtHeight,
 	}).Info("Set compatibility options.")
 
-	checkJSLib()
+	//checkJSLib()
 }
 
 // FindLastNearestLibVersion ..

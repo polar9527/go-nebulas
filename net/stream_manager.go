@@ -255,7 +255,8 @@ func (sm *StreamManager) SendMessageToPeers(messageName string, data []byte, pri
 		return true
 	})
 
-	selectedPeers := filter.Filter(allPeers)
+	//selectedPeers := filter.Filter(allPeers)
+	selectedPeers := allPeers
 	selectedPeersPrettyID := make([]string, 0)
 
 	for _, v := range selectedPeers {

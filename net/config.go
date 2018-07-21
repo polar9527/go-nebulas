@@ -19,12 +19,14 @@
 package net
 
 import (
-	"fmt"
 	"net"
 	"time"
-
 	"github.com/multiformats/go-multiaddr"
 	"github.com/polar9527/go-nebulas/neblet/pb"
+	"math/rand"
+	"strconv"
+	"fmt"
+	"strings"
 )
 
 // const
@@ -70,58 +72,86 @@ type Neblet interface {
 	Config() *nebletpb.Config
 }
 
+
+
+func Generate_Randnum() int {
+	rand.Seed(time.Now().Unix())
+	rnd := rand.Intn(1000)
+
+	//fmt.Printf("rand is %v\n", rnd)
+
+	return rnd + 9000
+}
+
 // NewP2PConfig return new config object.
-func NewP2PConfig(n Neblet) *Config {
-	chainConf := n.Config().Chain
-	networkConf := n.Config().Network
+//func NewP2PConfig(n Neblet) *Config {
+func NewP2PConfig(mode string) *Config {
+	//chainConf := n.Config().Chain
+	//networkConf := n.Config().Network
 	config := NewConfigFromDefaults()
 
-	// listen.
-	if len(networkConf.Listen) == 0 {
-		panic("Missing network.listen config.")
-	}
-	if err := verifyListenAddress(networkConf.Listen); err != nil {
-		panic(fmt.Sprintf("Invalid network.listen config: err is %s, config value is %s.", err, networkConf.Listen))
-	}
-	config.Listen = networkConf.Listen
+	if mode == "client" {
+		r := strconv.Itoa(Generate_Randnum())
+		fmt.Printf("r : %s\n", r)
 
-	// private key path.
-	if checkPathConfig(networkConf.PrivateKey) == false {
-		panic(fmt.Sprintf("The network private key path %s is not exist.", networkConf.PrivateKey))
-	}
-	config.PrivateKeyPath = networkConf.PrivateKey
+		lis := strings.Join([]string{"0.0.0.0:", r}, "")
+		fmt.Printf("lis : %s\n", lis)
 
-	// Chain ID.
-	config.ChainID = chainConf.ChainId
+		config.Listen = []string{lis}
+		fmt.Printf("config.Listen : %s\n", config.Listen[0])
 
-	// routing table dir.
-	// TODO: @robin using diff dir for temp files.
-	if checkPathConfig(chainConf.Datadir) == false {
-		panic(fmt.Sprintf("The chain data directory %s is not exist.", chainConf.Datadir))
-	}
-	config.RoutingTableDir = chainConf.Datadir
-
-	// seed server address.
-	seeds := networkConf.Seed
-	if len(seeds) > 0 {
-		config.BootNodes = make([]multiaddr.Multiaddr, len(seeds))
-		for i, v := range seeds {
-			addr, err := multiaddr.NewMultiaddr(v)
-			if err != nil {
-				panic(fmt.Sprintf("Invalid seed address config: err is %s, config value is %s.", err, v))
-			}
-			config.BootNodes[i] = addr
-		}
+		seed, _ := multiaddr.NewMultiaddr("/ip4/127.0.0.1/tcp/8680")
+		config.BootNodes = append(config.BootNodes, seed)
 	}
 
-	// max stream limits
-	if networkConf.GetStreamLimits() > 0 {
-		config.StreamLimits = networkConf.StreamLimits
-	}
 
-	if networkConf.GetReservedStreamLimits() > 0 {
-		config.ReservedStreamLimits = networkConf.ReservedStreamLimits
-	}
+
+	//// listen.
+	//if len(networkConf.Listen) == 0 {
+	//	panic("Missing network.listen config.")
+	//}
+	//if err := verifyListenAddress(networkConf.Listen); err != nil {
+	//	panic(fmt.Sprintf("Invalid network.listen config: err is %s, config value is %s.", err, networkConf.Listen))
+	//}
+	//config.Listen = networkConf.Listen
+	//
+	//// private key path.
+	//if checkPathConfig(networkConf.PrivateKey) == false {
+	//	panic(fmt.Sprintf("The network private key path %s is not exist.", networkConf.PrivateKey))
+	//}
+	//config.PrivateKeyPath = networkConf.PrivateKey
+	//
+	//// Chain ID.
+	//config.ChainID = chainConf.ChainId
+	//
+	//// routing table dir.
+	//// TODO: @robin using diff dir for temp files.
+	//if checkPathConfig(chainConf.Datadir) == false {
+	//	panic(fmt.Sprintf("The chain data directory %s is not exist.", chainConf.Datadir))
+	//}
+	//config.RoutingTableDir = chainConf.Datadir
+	//
+	//// seed server address.
+	//seeds := networkConf.Seed
+	//if len(seeds) > 0 {
+	//	config.BootNodes = make([]multiaddr.Multiaddr, len(seeds))
+	//	for i, v := range seeds {
+	//		addr, err := multiaddr.NewMultiaddr(v)
+	//		if err != nil {
+	//			panic(fmt.Sprintf("Invalid seed address config: err is %s, config value is %s.", err, v))
+	//		}
+	//		config.BootNodes[i] = addr
+	//	}
+	//}
+	//
+	//// max stream limits
+	//if networkConf.GetStreamLimits() > 0 {
+	//	config.StreamLimits = networkConf.StreamLimits
+	//}
+	//
+	//if networkConf.GetReservedStreamLimits() > 0 {
+	//	config.ReservedStreamLimits = networkConf.ReservedStreamLimits
+	//}
 
 	return config
 }

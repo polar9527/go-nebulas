@@ -29,12 +29,9 @@ import (
 	"time"
 
 	"github.com/libp2p/go-libp2p-interface-conn"
-	"github.com/polar9527/go-nebulas/core"
 	"github.com/polar9527/go-nebulas/metrics"
-	"github.com/polar9527/go-nebulas/neblet"
 	"github.com/polar9527/go-nebulas/net"
 	"github.com/polar9527/go-nebulas/util/byteutils"
-	"github.com/polar9527/go-nebulas/util/logging"
 )
 
 // Message Type
@@ -64,7 +61,7 @@ func main() {
 		defer pprof.StopCPUProfile()
 	}
 
-	fmt.Printf("%v", flag.Args())
+	fmt.Printf("%v\n", flag.Args())
 	if len(flag.Args()) < 2 {
 		help()
 		return
@@ -79,6 +76,8 @@ func main() {
 	// mode
 	mode := flag.Args()[0]
 	configPath := flag.Args()[1]
+
+	fmt.Printf("run...\n")
 
 	run(mode, configPath, *packageSize, *concurrentCount, *limitCount)
 
@@ -103,17 +102,20 @@ func help() {
 }
 
 func run(mode, configPath string, packageSize, concurrentMessageCount, totalMessageCount int64) {
-	// config.
-	config := neblet.LoadConfig(configPath)
-
-	// init log.
-	logging.Init(config.App.LogFile, config.App.LogLevel, config.App.LogAge)
-
-	core.SetCompatibilityOptions(config.Chain.ChainId)
-
+	//// config.
+	//config := neblet.LoadConfig(configPath)
+	//
+	//// init log.
+	//logging.Init(config.App.LogFile, config.App.LogLevel, config.App.LogAge)
+	//
+	//fmt.Printf("before core.SetCompatibilityOptions\n")
+	//core.SetCompatibilityOptions(config.Chain.ChainId)
+	//
+	//fmt.Printf("neblet.New(config)\n")
 	// neblet.
-	neblet, _ := neblet.New(config)
-	netService, err := net.NewNebService(neblet)
+	//neblet, _ := neblet.New(config)
+	//netService, err := net.NewNebService(neblet)
+	netService, err := net.NewNebService(mode)
 
 	if err != nil {
 		fmt.Printf("Error: %s", err)
@@ -135,9 +137,11 @@ func run(mode, configPath string, packageSize, concurrentMessageCount, totalMess
 	sentMessageCount := int64(0)
 
 	// first trigger.
+	fmt.Printf("mode: %s", mode)
 	if mode == "client" {
+		fmt.Printf("In mode: %s", mode)
 		sentMessageCount += concurrentMessageCount
-		time.Sleep(10 * time.Second)
+		time.Sleep(1 * time.Second)
 		go func() {
 			for i := 0; i < int(concurrentMessageCount); i++ {
 				netService.SendMessageToPeers(PingMessage, GenerateData(packageSize), net.MessagePriorityNormal, new(net.ChainSyncPeersFilter))
@@ -146,7 +150,7 @@ func run(mode, configPath string, packageSize, concurrentMessageCount, totalMess
 	}
 
 	ticker := time.NewTicker(5 * time.Second)
-	fmt.Printf("into for loop")
+	fmt.Printf("into for loop\n")
 	for {
 		select {
 		case message := <-messageCh:
