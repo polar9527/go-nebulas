@@ -50,6 +50,8 @@ var (
 func main() {
 	flag.Parse()
 
+	fmt.Printf("%v\n", flag.Args())
+
 	if *cpuprofile != "" {
 		f, err := os.Create(*cpuprofile)
 		if err != nil {
