@@ -261,6 +261,7 @@ func (sm *StreamManager) SendMessageToPeers(messageName string, data []byte, pri
 
 	for _, v := range selectedPeers {
 		stream := v.(*Stream)
+		fmt.Print("stream.pid: %s\n", stream.pid.Pretty())
 		if err := stream.SendMessage(messageName, data, priority); err == nil {
 			selectedPeersPrettyID = append(selectedPeersPrettyID, stream.pid.Pretty())
 		}

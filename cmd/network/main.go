@@ -64,7 +64,6 @@ func main() {
 		defer pprof.StopCPUProfile()
 	}
 
-	fmt.Printf("%v\n", flag.Args())
 	if len(flag.Args()) < 2 {
 		help()
 		return
