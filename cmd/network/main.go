@@ -146,10 +146,11 @@ func run(mode, configPath string, packageSize, concurrentMessageCount, totalMess
 	}
 
 	ticker := time.NewTicker(5 * time.Second)
-
+	fmt.Printf("into for loop")
 	for {
 		select {
 		case message := <-messageCh:
+			fmt.Printf("message get")
 			messageName := message.MessageType()
 			switch messageName {
 			case PingMessage:
@@ -166,6 +167,7 @@ func run(mode, configPath string, packageSize, concurrentMessageCount, totalMess
 
 				netService.SendMessageToPeer(PongMessage, message.Data(), net.MessagePriorityNormal, message.MessageFrom())
 			case PongMessage:
+				fmt.Printf("PongMessage get")
 				data := message.Data()
 				sendAt := ParseData(data)
 				nowAt := time.Now().UnixNano()
@@ -178,6 +180,7 @@ func run(mode, configPath string, packageSize, concurrentMessageCount, totalMess
 
 				sentMessageCount++
 				if totalMessageCount > 0 && sentMessageCount >= totalMessageCount {
+					fmt.Printf("run out")
 					return
 				}
 
