@@ -137,9 +137,13 @@ func run(mode, configPath string, packageSize, concurrentMessageCount, totalMess
 	sentMessageCount := int64(0)
 
 	// first trigger.
-	fmt.Printf("mode: %s", mode)
+	fmt.Printf("mode: %s\n", mode)
 	if mode == "client" {
-		fmt.Printf("In mode: %s", mode)
+
+		fmt.Printf("In mode: %s\n", mode)
+		fmt.Printf("concurrentMessageCount: %d\n", concurrentMessageCount)
+
+
 		sentMessageCount += concurrentMessageCount
 		time.Sleep(1 * time.Second)
 		go func() {
