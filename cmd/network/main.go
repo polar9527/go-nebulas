@@ -81,6 +81,9 @@ func main() {
 
 	fmt.Printf("run...\n")
 
+	*packageSize = 1024
+	*concurrentCount = 5
+
 	run(mode, configPath, *packageSize, *concurrentCount, *limitCount)
 
 	fmt.Printf("done...")
