@@ -100,7 +100,7 @@ func NewP2PConfig(mode string) *Config {
 		config.Listen = []string{lis}
 		fmt.Printf("config.Listen : %s\n", config.Listen[0])
 
-		seed, _ := multiaddr.NewMultiaddr("/ip4/127.0.0.1/tcp/8680")
+		seed, _ := multiaddr.NewMultiaddr("/ip4/127.0.0.1/tcp/8680/ipfs/QmP7HDFcYmJL12Ez4ZNVCKjKedfE7f48f1LAkUc3Whz4jP")
 		config.BootNodes = append(config.BootNodes, seed)
 	}
 
