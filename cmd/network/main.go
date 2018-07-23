@@ -131,6 +131,10 @@ func run(mode, configPath string, packageSize, concurrentMessageCount, totalMess
 	// start server.
 	netService.Start()
 
+	if mode == "server" {
+		fmt.Printf("Sever Host Address: %v\n", netService.Node().Host().Addrs())
+	}
+
 	// metrics.
 	tps := metrics.NewMeter("tps")
 	throughput := metrics.NewMeter("throughput")
