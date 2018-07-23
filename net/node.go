@@ -188,6 +188,10 @@ func (node *Node) RouteTable() *RouteTable {
 	return node.routeTable
 }
 
+func (node *Node) Host() *basichost.BasicHost {
+	return node.host
+}
+
 func initP2PNetworkKey(config *Config, node *Node) {
 	// init p2p network key.
 	networkKey, err := LoadNetworkKeyFromFileOrCreateNew(config.PrivateKeyPath)

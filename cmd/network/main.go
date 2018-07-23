@@ -132,7 +132,7 @@ func run(mode, configPath string, packageSize, concurrentMessageCount, totalMess
 	netService.Start()
 
 	if mode == "server" {
-		fmt.Printf("Sever Host Address: %v\n", netService.Node().Host().Addrs())
+		fmt.Printf("Server Host Address: %v\n", netService.Node().Host().Addrs())
 	}
 
 	// metrics.
